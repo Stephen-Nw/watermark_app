@@ -1,3 +1,7 @@
-from appframe import root
+from appframe import NewFrame
 
-root()
+new_frame = NewFrame()
+
+
+
+new_frame()

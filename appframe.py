@@ -1,8 +1,10 @@
 from tkinter import *
 
 
-root = Tk()
-root.title("Stephen Watermark app")
+
+class NewFrame:
+    root = Tk()
+    root.title("Stephen Watermark app")
 
 
 
@@ -28,4 +30,4 @@ root.title("Stephen Watermark app")
 
 
 
-root.mainloop()
+    root.mainloop()
