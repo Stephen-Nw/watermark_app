@@ -11,7 +11,7 @@ def upload_image():
     image_path = image_entry.get()
     watermarked_image = ImageTk.PhotoImage(Image.open(image_path))
     image_display = Label(main_frame, image=watermarked_image)
-    image_display.image_names = watermarked_image
+    image_display.image_names = watermarked_image  # needed for PhotoImage to work inside a function; not sure why
     image_display.grid(column=0, row=1, columnspan=3)
     return
 
