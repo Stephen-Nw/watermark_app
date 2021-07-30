@@ -2,30 +2,30 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
 
-
-def upload_image():
-    pass
-
-
 root = Tk()
 root.title("Stephen Watermark App")
 main_frame = ttk.Frame(root, padding=10)
 
+
+def upload_image():
+    image_path = image_entry.get()
+    watermarked_image = ImageTk.PhotoImage(Image.open(image_path))
+    image_display = Label(main_frame, image=watermarked_image)
+    image_display.image_names = watermarked_image
+    image_display.grid(column=0, row=1, columnspan=3)
+    return
+
+
 # ===========CREATE OBJECTS====================
 image_address = StringVar()
-original_image = ttk.Entry(main_frame, textvariable=image_address, width=75, justify="right")
-
+image_entry = ttk.Entry(main_frame, textvariable=image_address, width=75, justify="right")
 upload_button = ttk.Button(main_frame, text="Upload image", command=upload_image)
-
-watermarked_image = ImageTk.PhotoImage(Image.open("C://Users/Stephen/Desktop/Melanin.jpg"))
-my_label = Label(main_frame, image=watermarked_image)
 
 
 # ========GEOMETRY MANAGER===================
 main_frame.grid(column=0, row=0)
-original_image.grid(column=0, row=0)
+image_entry.grid(column=0, row=0)
 upload_button.grid(column=2, row=0)
-my_label.grid(column=0, row=1, columnspan=3)
 
 
 # ================RESIZING=====================
