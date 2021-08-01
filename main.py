@@ -22,13 +22,30 @@ def upload_image():
         image_display = Label(main_frame, image=watermarked_image)
         # image_display.image_names = watermarked_image  # needed for PhotoImage to work inside a function; not sure why
         image_display.grid(column=0, row=1, columnspan=3)
-    return
 
+
+
+def enter(event):
+    """Receives image for processing; throws error for invalid entries"""
+    image_path = image_entry.get()
+    global watermarked_image
+    try:
+        watermarked_image = ImageTk.PhotoImage(Image.open(image_path))
+    except AttributeError:
+        messagebox.showerror(title="Error!!", message="Image path is not valid!")
+    except FileNotFoundError:
+        messagebox.showerror(title="Error!!", message="No File Found!")
+    else:
+        image_display = Label(main_frame, image=watermarked_image)
+        # image_display.image_names = watermarked_image  # needed for PhotoImage to work inside a function; not sure why
+        image_display.grid(column=0, row=1, columnspan=3)
+    return
 
 # ===========CREATE OBJECTS====================
 image_address = StringVar()
 image_entry = ttk.Entry(main_frame, textvariable=image_address, width=75, justify="right")
 upload_button = ttk.Button(main_frame, text="Upload image", command=upload_image)
+image_entry.bind(sequence='<Key-Return>', func=enter)
 
 # ========GEOMETRY MANAGER===================
 main_frame.grid(column=0, row=0)
