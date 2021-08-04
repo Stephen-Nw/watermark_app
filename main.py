@@ -4,6 +4,7 @@ from tkinter import messagebox
 from tkinter.font import Font
 from PIL import ImageTk, Image
 
+
 root = Tk()
 root.title("Stephen Watermark App")
 main_frame = ttk.Frame(root, padding=10)
