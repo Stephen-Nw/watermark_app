@@ -1,11 +1,14 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from tkinter.font import Font
 from PIL import ImageTk, Image
 
 root = Tk()
 root.title("Stephen Watermark App")
 main_frame = ttk.Frame(root, padding=10)
+
+watermarkFont = Font(family="Brush Script MT", size=35, weight="normal", slant="italic")
 
 
 # def upload_image():
@@ -40,7 +43,7 @@ def upload_image():
         canvas.grid(column=0, row=1, columnspan=3)
         # image_display.grid(column=0, row=1, columnspan=3)
         canvas.create_image(10, 10, image=watermarked_image, anchor="nw")
-        canvas.create_text(100, 500, text="welcome", font=('Helvetica', 25, "bold"), fill='white')
+        canvas.create_text(100, 500, text="interprimos", font=watermarkFont, fill='white')
 
 
 
@@ -82,6 +85,8 @@ main_frame.columnconfigure(3, weight=1)
 
 # TODO 3: Create and add watermark to picture
 # TODO 4: Refactor code - functional programming
+
+
 
 
 root.mainloop()
