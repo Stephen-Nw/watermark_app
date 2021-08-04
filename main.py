@@ -66,7 +66,7 @@ main_frame.columnconfigure(2, weight=1)
 main_frame.columnconfigure(3, weight=1)
 
 
-# TODO 4: Refactor code - functional programming
+
 
 
 root.mainloop()
